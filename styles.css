@@ -6,3 +6,28 @@
   object-fit: contain;
   object-position: left center;
 }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-text strong,
+.brand-text small {
+  display: block;
+}
+
+.brand-text strong {
+  color: #a43a16;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.brand-text small {
+  margin-top: 5px;
+  color: #286443;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}

@@ -52,11 +52,12 @@
       <section id="order" class="order-section">
         <div class="order-grid">
           <div><h2>Your Order</h2><p class="section-tamil">உங்கள் ஆர்டர்</p><div id="basket" class="basket"><p>Your basket is empty. கூடை காலியாக உள்ளது — மேலே உள்ள பலகாரங்களைச் சேர்க்கவும்.</p></div><div class="total"><span>Total / மொத்தம்</span><b id="total">₹0</b></div><small class="delivery">Free delivery above ₹500 • ₹500 மேல் இலவச டெலிவரி</small></div>
-          <form id="order-form" class="order-form"><h3>Delivery Details / விவரங்கள்</h3><label>Name / பெயர்<input required name="name" /></label><label>Phone / தொலைபேசி<input required name="phone" type="tel" pattern="[0-9+ ]{8,15}" /></label><label>Email / மின்னஞ்சல்<input required name="email" type="email" /></label><label>Address / முகவரி<textarea required name="address" rows="3"></textarea></label><button id="place-order" type="submit">Place Order / ஆர்டர் செய்க</button><button id="whatsapp" class="whatsapp" type="button">◉ Confirm on WhatsApp / வாட்ஸ்அப்பில் உறுதி செய்க</button><p id="success" hidden>Thank you! Ammama will call you to confirm. நன்றி! உங்கள் ஆர்டர் பெறப்பட்டது.</p></form>
+          <form id="order-form" class="order-form"><h3>Delivery Details / விவரங்கள்</h3><label>Name / பெயர்<input required name="name" /></label><label>Phone / தொலைபேசி<input required name="phone" type="tel" pattern="[0-9+ ]{8,15}" /></label><label>Email / மின்னஞ்சல்<input required name="email" type="email" /></label><label>Address / முகவரி<textarea required name="address" rows="3"></textarea></label><button id="place-order" type="submit">Pay Securely / பாதுகாப்பாக செலுத்துக</button><button id="whatsapp" class="whatsapp" type="button">◉ Confirm on WhatsApp / வாட்ஸ்அப்பில் உறுதி செய்க</button><p id="success" hidden></p></form>
         </div>
       </section>
     </main>
     <footer><div><strong>Ammama's Angadi</strong><p>HOMEMADE HERITAGE SNACKS</p></div><div><a href="#">Instagram</a><a href="#">Shipping</a><a href="#">Bulk Orders</a></div><small>© 2026 Ammama's Angadi. All Rights Reserved.<br />அம்மம்மாவின் அங்காடி</small></footer>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

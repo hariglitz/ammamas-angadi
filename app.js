@@ -1,10 +1,31 @@
+const categories=[['snacks','Snacks / பலகாரங்கள்'],['podis','Podis / பொடிகள்'],['healthmix','Health Mix / ஹெல்த் மிக்ஸ்'],['masalas','Masalas / மசாலாக்கள்']];
 const products=[
-  ['tapioca-chips','Tapioca Chips','மரவள்ளி சிப்ஸ்','200g',100,'tapioca-chips.jpg'],['palak-ribbon-pakoda','Palak Ribbon Pakoda','பாலக் ரிப்பன் பக்கோடா','200g',100,'palak-ribbon-pakoda.jpg'],['thattai','Thattai','தட்டை','200g',100,'thattai.jpg'],['carrot-chips','Carrot Chips','கேரட் சிப்ஸ்','200g',100,'carrot-chips.jpg'],['beetroot-finger-chips','Beetroot Finger Chips','பீட்ரூட் வறல் சிப்ஸ்','200g',100,'beetroot-finger-chips.jpg'],['sweet-banana-chips','Sweet Banana Chips','சுவீட் வாழை சிப்ஸ்','200g',100,'sweet-banana-chips.jpg'],['andhra-murukku','Andhra Murukku','ஆந்திரா முறுக்கு','200g',100,'andhra-murukku.jpg'],['health-mix','Health Mix','ஹெல்த் மிக்ஸ்','200g',200,'health-mix.jpg']
-].map(([id,name,tamil,weight,price,image])=>({id,name,tamil,weight,price,image}));
+  // Snacks / பலகாரங்கள்
+  ['tapioca-chips','Tapioca Chips','மரவள்ளி சிப்ஸ்','snacks','200g',100,'tapioca-chips.jpg'],
+  ['palak-ribbon-pakoda','Palak Ribbon Pakoda','பாலக் ரிப்பன் பக்கோடா','snacks','200g',100,'palak-ribbon-pakoda.jpg'],
+  ['thattai','Thattai','தட்டை','snacks','200g',100,'thattai.jpg'],
+  ['carrot-chips','Carrot Chips','கேரட் சிப்ஸ்','snacks','200g',100,'carrot-chips.jpg'],
+  ['beetroot-finger-chips','Beetroot Finger Chips','பீட்ரூட் வறல் சிப்ஸ்','snacks','200g',100,'beetroot-finger-chips.jpg'],
+  ['sweet-banana-chips','Sweet Banana Chips','சுவீட் வாழை சிப்ஸ்','snacks','200g',100,'sweet-banana-chips.jpg'],
+  ['andhra-murukku','Andhra Murukku','ஆந்திரா முறுக்கு','snacks','200g',100,'andhra-murukku.jpg'],
+  // Podis / பொடிகள்
+  ['idli-podi','Idli Podi','இட்லி பொடி','podis','200g',140,''],
+  ['milagai-podi','Milagai Podi','மிளகாய் பொடி','podis','200g',150,''],
+  ['curry-leaf-podi','Curry Leaf Podi','கறிவேப்பிலை பொடி','podis','200g',160,''],
+  ['garlic-podi','Garlic Podi','பூண்டு பொடி','podis','200g',150,''],
+  // Health Mix / ஹெல்த் மிக்ஸ்
+  ['health-mix','Health Mix','ஹெல்த் மிக்ஸ்','healthmix','200g',200,'health-mix.jpg'],
+  ['ragi-health-mix','Ragi Health Mix','கேழ்வரகு ஹெல்த் மிக்ஸ்','healthmix','500g',320,''],
+  // Masalas / மசாலாக்கள்
+  ['sambar-podi','Sambar Podi','சாம்பார் பொடி','masalas','200g',180,''],
+  ['rasam-podi','Rasam Podi','ரசம் பொடி','masalas','200g',170,''],
+  ['chettinad-masala','Chettinad Masala','செட்டிநாடு மசாலா','masalas','200g',200,''],
+].map(([id,name,tamil,category,weight,price,image])=>({id,name,tamil,category,weight,price,image}));
 const cart={}; const byId=id=>products.find(p=>p.id===id); const money=n=>`₹${n}`;
 function quantity(p){const n=cart[p.id]||0;return n?`<div class="quantity"><button data-change="-1" data-id="${p.id}">−</button><span>${n} in cart / கூடையில்</span><button data-change="1" data-id="${p.id}">+</button></div>`:`<button data-change="1" data-id="${p.id}">Add to Cart / சேர்க்கவும்</button>`}
 function linesInCart(){return Object.entries(cart).filter(([,n])=>n).map(([id,n])=>[byId(id),n])}
-function render(){document.querySelector('#products').innerHTML=products.map(p=>`<article class="product"><img class="product-image" src="${p.image}" alt="${p.name}" /><div class="product-info"><div><h3>${p.name}</h3><p>${p.tamil} • ${p.weight}</p></div><span class="price">${money(p.price)}</span></div>${quantity(p)}</article>`).join('');const lines=linesInCart();const total=lines.reduce((sum,[p,n])=>sum+p.price*n,0);document.querySelector('#cart-count').textContent=lines.length?`(${lines.reduce((s,[,n])=>s+n,0)})`:'';document.querySelector('#total').textContent=money(total);document.querySelector('#basket').innerHTML=lines.length?lines.map(([p,n])=>`<div class="basket-line"><div><strong>${p.name}</strong><small>${p.tamil} • ${p.weight} × ${n}</small></div><div><b class="price">${money(p.price*n)}</b><button class="remove" data-change="-1" data-id="${p.id}">Remove</button></div></div>`).join(''):'<p>Your basket is empty. கூடை காலியாக உள்ளது — மேலே உள்ள பலகாரங்களைச் சேர்க்கவும்.</p>';document.querySelector('#place-order').disabled=!lines.length;document.querySelector('#whatsapp').disabled=!lines.length}
+function productImage(p){return p.image?`<img class="product-image" src="${p.image}" alt="${p.name}" />`:`<div class="product-image placeholder" aria-hidden="true">${p.name.charAt(0)}</div>`}
+function render(){document.querySelector('#products').innerHTML=categories.map(([catId,catLabel])=>{const items=products.filter(p=>p.category===catId);if(!items.length)return'';return `<h3 class="category-heading">${catLabel}</h3><div class="products">${items.map(p=>`<article class="product">${productImage(p)}<div class="product-info"><div><h3>${p.name}</h3><p>${p.tamil} • ${p.weight}</p></div><span class="price">${money(p.price)}</span></div>${quantity(p)}</article>`).join('')}</div>`}).join('');const lines=linesInCart();const total=lines.reduce((sum,[p,n])=>sum+p.price*n,0);document.querySelector('#cart-count').textContent=lines.length?`(${lines.reduce((s,[,n])=>s+n,0)})`:'';document.querySelector('#total').textContent=money(total);document.querySelector('#basket').innerHTML=lines.length?lines.map(([p,n])=>`<div class="basket-line"><div><strong>${p.name}</strong><small>${p.tamil} • ${p.weight} × ${n}</small></div><div><b class="price">${money(p.price*n)}</b><button class="remove" data-change="-1" data-id="${p.id}">Remove</button></div></div>`).join(''):'<p>Your basket is empty. கூடை காலியாக உள்ளது — மேலே உள்ள பலகாரங்களைச் சேர்க்கவும்.</p>';document.querySelector('#place-order').disabled=!lines.length;document.querySelector('#whatsapp').disabled=!lines.length}
 function change(id,delta){cart[id]=Math.max(0,(cart[id]||0)+delta);render()}
 function messageFor(items,details=''){const total=items.reduce((s,[p,n])=>s+p.price*n,0);return `Hi Ammama, please confirm my order from Ammama's Angadi:\n\n${items.map(([p,n])=>`${p.name} (${p.tamil}) — ${p.weight} × ${n} = ${money(p.price*n)}`).join('\n')}\n\nTotal: ${money(total)}${details}`}
 function whatsapp(text){window.open(`https://wa.me/918870888492?text=${encodeURIComponent(text)}`,'_blank','noopener,noreferrer')}

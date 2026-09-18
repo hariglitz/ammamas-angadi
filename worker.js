@@ -6,7 +6,15 @@ const products = {
   'beetroot-finger-chips': { name: 'Beetroot Finger Chips', price: 100 },
   'sweet-banana-chips': { name: 'Sweet Banana Chips', price: 100 },
   'andhra-murukku': { name: 'Andhra Murukku', price: 100 },
+  'idli-podi': { name: 'Idli Podi', price: 140 },
+  'milagai-podi': { name: 'Milagai Podi', price: 150 },
+  'curry-leaf-podi': { name: 'Curry Leaf Podi', price: 160 },
+  'garlic-podi': { name: 'Garlic Podi', price: 150 },
   'health-mix': { name: 'Health Mix', price: 200 },
+  'ragi-health-mix': { name: 'Ragi Health Mix', price: 320 },
+  'sambar-podi': { name: 'Sambar Podi', price: 180 },
+  'rasam-podi': { name: 'Rasam Podi', price: 170 },
+  'chettinad-masala': { name: 'Chettinad Masala', price: 200 },
 };
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {

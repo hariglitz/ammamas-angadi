@@ -9,10 +9,10 @@ const products=[
   ['sweet-banana-chips','Sweet Banana Chips','சுவீட் வாழை சிப்ஸ்','snacks','200g',100,'sweet-banana-chips.jpg'],
   ['andhra-murukku','Andhra Murukku','ஆந்திரா முறுக்கு','snacks','200g',100,'andhra-murukku.jpg'],
   // Podis / பொடிகள்
-  ['idli-podi','Idli Podi','இட்லி பொடி','podis','200g',140,''],
-  ['milagai-podi','Milagai Podi','மிளகாய் பொடி','podis','200g',150,''],
-  ['curry-leaf-podi','Curry Leaf Podi','கறிவேப்பிலை பொடி','podis','200g',160,''],
-  ['garlic-podi','Garlic Podi','பூண்டு பொடி','podis','200g',150,''],
+  ['idli-podi','Idli Podi','இட்லி பொடி','podis','200g',120,'idli-podi.jpg'],
+  ['kuzhambu-milagai-podi','Kuzhambu milagai podi','குழம்பு மிளகாய் பொடி','podis','200g',150,'kuzhambu-milagai-podi.jpg'],
+  ['curry-leaf-podi','Curry Leaf Podi','கறிவேப்பிலை பொடி','podis','200g',150,'curry-leaves-podi.jpg'],
+  ['garlic-podi','Garlic Podi','பூண்டு பொடி','podis','200g',150,'garlic-podi.jpg'],
   // Health Mix / ஹெல்த் மிக்ஸ்
   ['health-mix','Health Mix','ஹெல்த் மிக்ஸ்','healthmix','200g',200,'health-mix.jpg'],
   ['ragi-health-mix','Ragi Health Mix','கேழ்வரகு ஹெல்த் மிக்ஸ்','healthmix','500g',320,''],

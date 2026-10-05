@@ -14,12 +14,12 @@ const products=[
   ['curry-leaf-podi','Curry Leaf Podi','கறிவேப்பிலை பொடி','podis','200g',150,'curry-leaves-podi.jpg'],
   ['garlic-podi','Garlic Podi','பூண்டு பொடி','podis','200g',150,'garlic-podi.jpg'],
   // Health Mix / ஹெல்த் மிக்ஸ்
-  ['health-mix','Health Mix','ஹெல்த் மிக்ஸ்','healthmix','200g',200,'health-mix.jpg'],
-  ['ragi-health-mix','Ragi Health Mix','கேழ்வரகு ஹெல்த் மிக்ஸ்','healthmix','500g',320,''],
+  ['health-mix','Health Mix','ஹெல்த் மிக்ஸ்','healthmix','200g',200,'Healthmix.jpg'],
+  ['ragi-health-mix','Ragi Health Mix','கேழ்வரகு ஹெல்த் மிக்ஸ்','healthmix','500g',320,'Ragi_Healthmix.jpg'],
   // Masalas / மசாலாக்கள்
-  ['sambar-podi','Sambar Podi','சாம்பார் பொடி','masalas','200g',180,''],
-  ['rasam-podi','Rasam Podi','ரசம் பொடி','masalas','200g',170,''],
-  ['chettinad-masala','Chettinad Masala','செட்டிநாடு மசாலா','masalas','200g',200,''],
+  ['sambar-podi','Sambar Podi','சாம்பார் பொடி','masalas','200g',180,'Sambar_podi.jpg'],
+  ['rasam-podi','Rasam Podi','ரசம் பொடி','masalas','200g',170,'Rasam_podi.jpg'],
+  ['chettinad-masala','Chettinad Masala','செட்டிநாடு மசாலா','masalas','200g',200,'Chettinad_masala.jpg'],
 ].map(([id,name,tamil,category,weight,price,image])=>({id,name,tamil,category,weight,price,image}));
 const cart={}; const byId=id=>products.find(p=>p.id===id); const money=n=>`₹${n}`;
 function quantity(p){const n=cart[p.id]||0;return n?`<div class="quantity"><button data-change="-1" data-id="${p.id}">−</button><span>${n} in cart / கூடையில்</span><button data-change="1" data-id="${p.id}">+</button></div>`:`<button data-change="1" data-id="${p.id}">Add to Cart / சேர்க்கவும்</button>`}
